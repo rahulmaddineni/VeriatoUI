@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Details</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    
+    <div>
+        <div id="detail-header" class="text-center col-sm-12"> {{result.header}}</div>
+        <div class="table-wrapper">
+            <table class="card table-responsive">
+                <tr>
+                    <td class="table-header">
+                        <i class="fa fa-user-circle" aria-hidden="true"> </i>  <strong>Name</strong>
+                    </td> 
+                    <td>
+                        {{result.username}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-header">
+                        <i class="fa fa-id-badge" aria-hidden="true"> </i>  <strong>Type</strong>
+                    </td>
+                    <td>
+                        {{result.type}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-header">
+                        <i class="fa fa-mobile" aria-hidden="true"> </i>  <strong>Phone</strong>
+                    </td>
+                    <td>
+                        {{result.phone}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-header">
+                        <i class="fa fa-envelope" aria-hidden="true"> </i>  <strong>Email</strong>
+                    </td>
+                    <td>
+                        {{result.useremail}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-header">
+                        <i class="fa fa-sticky-note" aria-hidden="true"> </i>  <strong>Description</strong>
+                    </td>
+                    <td>
+                        {{result.description}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <div class="btn btn-primary" ui-sref="update({id:result.logId})">Edit</div>
+                        <div class="btn btn-danger" ng-click="deleteLog(result.logId)">Delete</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>

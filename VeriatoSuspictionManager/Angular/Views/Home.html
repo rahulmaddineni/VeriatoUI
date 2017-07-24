@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="app-header">Suspicious Records</div>
+    <div ng-if="message.length > 0">
+        <div class="notification">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="row col-sm-12">
+            <div class="pull-right">
+                <select ng-model="pageSize" id="pageSize" class="form-control">
+                    <optgroup label="Size">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <div ng-if="results.length > 0">
+            <div>
+                <div ng-repeat="result in results  | startFrom:currentPage*pageSize | limitTo:pageSize" class="col-lg-3 col-md-6 col-sm-12">
+                    <table class="card table-width">
+                        <tr class="blue-row header" ng-style="{background: colorCodeArray[$index % colorCodeArray.length]}">
+                            <th colspan="2">
+                                {{result.header}}
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="table-header">
+                                Name
+                            </td>
+                            <td>
+                                {{result.username}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">
+                                Type
+                            </td>
+                            <td>
+                                {{result.type}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div ui-sref="details({id:result.logId})" class="card-btn">View Details</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="text-center col-sm-12">
+                <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" class="btn page-btn">
+                    Previous
+                </button>
+                {{currentPage+1}}/{{numberOfPages()}}
+                <button ng-disabled="currentPage >= results.length/pageSize - 1" ng-click="currentPage=currentPage+1" class="btn page-btn">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+
+        
+</body>
+</html>
+

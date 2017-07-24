@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div class="container">
+        <form name="logForm" ng-submit="logForm.$valid" novalidate="">
+            <ul class="flex-outer">
+                <li>
+                    <label for="header">Header</label>
+                    <input type="text" id="header" name="header" ng-model="log.header" ng-minlength="5" ng-maxlength="25" required>
+                    <div ng-messages="logForm.header.$error" ng-if="logForm.header.$touched">
+                        <p ng-message="minlength">Minimum 5 characters</p>
+                        <p ng-message="maxlength">Maximum 25 characters</p>
+                        <p ng-message="required">Required</p>
+                    </div>
+                </li>
+                <li>
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" name="username" ng-model="log.username" required>
+                    <div ng-messages="logForm.username.$error" ng-if="logForm.username.$touched">
+                        <p ng-message="required">Required</p>
+                    </div>
+                </li>
+                <li>
+                    <label for="useremail">User Email</label>
+                    <input type="email" id="useremail" ng-model="log.useremail">
+                </li>
+                <li>
+                    <label for="phone">Phone</label>
+                    <input type="number" id="phone" ng-model="log.phone" ng-maxlength="10">
+                </li>
+                <li>
+                    <label for="type">User Type</label>
+                    <select ng-model="log.type" name="type" class="form-control" required>
+                        <option value="Insider">Insider</option>
+                        <option value="Outsider">Outsider</option>
+                        <option value="Not Sure">Not Sure</option>
+                    </select>
+                    <div ng-messages="logForm.type.$error" ng-if="logForm.type.$touched">
+                        <p ng-message="required">Required</p>
+                    </div>
+                </li>
+                <li>
+                    <label for="description">Description</label>
+                    <textarea rows="6" id="description" name="description" ng-model="log.description" required></textarea>
+                    <div ng-messages="logForm.description.$error" ng-if="logForm.description.$touched">
+                        <p ng-message="required">Required</p>
+                    </div>
+                </li>
+                <li>
+                    <button type="submit" ng-disabled="logForm.$invalid" ng-click="submitdata()">Submit</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+</html>

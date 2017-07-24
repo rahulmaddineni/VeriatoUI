@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div class="module form-module">
+        <div class="form">
+            <h2>Login to your account</h2>
+            <form ng-submit="signIn()">
+                <input type="text" placeholder="Username" ng-model="email" />
+                <input type="password" placeholder="Password" ng-model="password" />
+                <button type="submit">Login</button>
+                <p class="message">Not registered? <a ui-sref="register">Create a new Account</a></p>
+                <p class="alert-danger">{{loginerrmsg}}</p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

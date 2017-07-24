@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div class="module form-module">
+        <div class="form">
+            <h2>Crreate an account</h2>
+            <form ng-submit="signUp()">
+                <input type="text" placeholder="Username" ng-model="email" />
+                <input type="password" placeholder="Password" ng-model="password" />
+                <button type="submit">Register</button>
+                <p class="message">Already registered? <a ui-sref="login">Login</a></p>
+                <p class="alert-danger">{{regerrmsg}}</p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

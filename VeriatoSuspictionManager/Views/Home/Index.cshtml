@@ -1,0 +1,79 @@
+﻿<html>
+<head>
+    <title>Veriato</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!--angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+    <!--jquery-->
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <!-- pusher-js -->
+    <script src="//js.pusher.com/3.0/pusher.min.js"></script>
+    <!-- pusher-angular -->
+    <script src="//cdn.jsdelivr.net/angular.pusher/latest/pusher-angular.min.js"></script>
+    <!--bootstrap-->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-theme.css" rel="stylesheet" />
+    <!--fontawesome-->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <!--custom-->
+    <script type="text/javascript" src="~/Scripts/styles.js"></script>
+    <link href="~/css/formstyles.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <!--firebase-->
+    <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <!--angular-chart.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+
+    <script src="~/Angular/Controller/AuthController.js"></script>
+    <script src="~/Angular/Controller/HomeController.js"></script>
+    <script src="~/Angular/Controller/InsertController.js"></script>
+    <script src="~/Angular/Controller/UpdateController.js"></script>
+    <script src="~/Angular/Controller/DetailsController.js"></script>
+    <script src="~/Angular/Controller/ChartController.js"></script>
+    <script src="~/Angular/Controller/MainController.js"></script>
+    <script src="~/Angular/Controller/FirebaseAuthServices.js"></script>
+    <script src="~/Angular/App.js"></script>
+</head>
+<body>
+    <div ng-app="App">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" ui-sref="home"><img class="veriato-logo" src="~/css/veriatologo.png" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar" ng-controller="MainController">
+                    <ul class="nav navbar-nav right-navbar">
+                        <li class="active"><a ui-sref="home"> Home </a></li>
+                        <li ng-show="email.length > 0"><a ui-sref="insert">Insert New Record</a></li>
+                        <li ng-show="email.length > 0"><a ui-sref="analysis">Analysis</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" ng-show="email.length > 0">
+                        <li><a><span class="fa fa-user-circle"></span> {{email}}</a></li>
+                        <li><a ui-sref="logout" ng-click="email = ''"><span class="fa fa-sign-in"></span> Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!--UI Route Views-->
+        <ui-view></ui-view>
+
+    </div>
+    
+    
+</body>
+</html>
